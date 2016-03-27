@@ -36,4 +36,16 @@ phoxy_return_worker::$add_hook_cb = function($that)
 
 phpsql\OneLineConfig(conf()->db->connection_string);
 
+//instagram api
+use MetzWeb\Instagram\Instagram;
+$instagram = new Instagram(array(
+    'apiKey' => conf()->instagram_api->apiKey,
+    'apiSecret' => conf()->instagram_api->apiSecret,
+    'apiCallback' => conf()->instagram_api->apiCallback // must point to success.php
+));
+function instagram()
+{
+  global $instagram;
+  return $instagram;
+}
 include('phoxy/load.php');
