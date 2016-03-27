@@ -1,0 +1,12 @@
+# Routing for apache compatible systems
+
+DirectorySlash Off
+RewriteEngine On
+
+RewriteCond %{QUERY_STRING} _escaped_fragment_
+RewriteRule ^(.*)$ engine/shot.php [END,PT,QSA]
+
+RewriteRule ^(.*)$ /engine/route.php [L,END,QSA]
+
+RedirectMatch 403 /\.git
+ErrorDocument 404 /engine/route.php

@@ -1,0 +1,39 @@
+production: 0
+route:
+# forbid hidden files, and parent directory access
+  - url: \/\..*
+    forbid: true
+
+  - url: \/enjs.js
+    rewrite: vendor/phoxy/enjs/enjs.js
+
+  - url: \/(.+\.js)$
+    static: true
+    compress: true
+    minify: true
+    mime: application/javascript
+
+  - url: \/(.+\.css)$
+    static: true
+    compress: true
+    mime: text/css
+
+  - url: \/(.+\.ejs)$
+    static: true
+    compress: true
+    mime: text/ejs
+
+  - url: \/robots\.txt
+    rewrite: /api/utils/robot/robot
+
+  - url: \/sitemap\.xml
+    rewrite: /api/utils/robot/sitemap
+
+  - url: \/api\/?$
+    rewrite: /api/main/home
+
+  - url: \/api.*
+    script: engine/rpc.php
+
+  - url: \/.*
+    script: engine/coldstart.php
