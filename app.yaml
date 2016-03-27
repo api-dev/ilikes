@@ -1,0 +1,14 @@
+# htaccess for Google App Engine
+application: phoxy-bootstrap
+version: 1
+runtime: php55
+api_version: 1
+
+default_expiration: "10m"
+
+handlers:
+- url: /.*
+  script: engine/route.php
+
+skip_files:
+- .git.*
