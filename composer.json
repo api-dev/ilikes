@@ -10,6 +10,7 @@
     "phoxy/snippets": "~0",
     "enelar/phpa2o" : "~0",
     "mustangostang/spyc": "~0.5",
-    "tedivm/jshrink": "~1.0"
+    "tedivm/jshrink": "~1.0",
+    "enelar/phpsql": "~0"
   }
 }

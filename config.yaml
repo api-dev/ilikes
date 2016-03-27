@@ -1,0 +1,2 @@
+db:
+  connection_string: mysql://user:password@host/db
